@@ -18,4 +18,17 @@
 	$query = "INSERT INTO `moves` (`id` ,`item_id` ,`type_move` ,`where` ,`date` ,`quantity`)
 				VALUES (NULL , '".$item_id."', '2', '".$location."',CURRENT_TIMESTAMP , '".$quantity."');" ;
 	$result = mysql_query ( $query , $connection ) or die ( mysql_error () ) ;
+
+	//scadam cantitatea rezervata si scadem din cantitatea disponibila.
+
+	$quantity_to_reserve = $_POST [ "quantity" ] ;
+	$query = "SELECT reserved FROM items WHERE id='".$item_id."' LIMIT 1" ;
+	$result = mysql_query ( $query , $connection ) or die ( mysql_error ( ) )  ;
+	
+	$reserved_STOC = mysql_result ( $result , 0 , "reserved" ) ;
+	$reserved_STOC -= $quantity ;
+	
+	$query = "UPDATE items SET reserved = '".$reserved_STOC."' WHERE id = '".$item_id."'";
+	$result = mysql_query ( $query , $connection ) or die ( mysql_error ( ) ) ;
+
 ?>
