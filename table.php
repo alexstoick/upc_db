@@ -45,10 +45,10 @@
 
 <table width="100%" style="font:11px Verdana" id="theList">
 <tr style="margin-bottom:20px;">
-<td width="5%" class="header"> </td>
-<td width="5%" class="header"> </td>
-<td width="5%" class="header"> </td>
-<td width="5%" class="header"> </td>
+<td class="header"> </td>
+<td class="header"> </td>
+<td class="header"> </td>
+<td class="header"> </td>
 <td width="30%" style="align:center;text-align:center;" class="header"><b>Name</b></td>
 <td width="30%" style="align:center;text-align:center;" class="header"><b>Description</b></td>
 <td width="30%" bgcolor="#999999" style="align:center;text-align:center;" class="header"><b>Quantity</b></td>
@@ -72,20 +72,20 @@
 		if ( $i % 2 == 0 )
 			echo '<tr id="coloana'.$i.'">' ;
 		else
-			echo '<tr bgcolor="#EFF1F5" id="coloana'.$i.'" style="border-bottom:50px; padding:0px; margin:0px;">' ;
+			echo '<tr bgcolor="#EFF1F5" id="coloana'.$i.'">' ;
 		echo '<font face="arial" size="2">';
 		echo '<td >
 					<div id="viewlarger'.$i.'">[+]</div>
 					<div id="tooltip'.$i.'" style="opacity:0.0; display:none"><img src="images/1 ('.$i.').jpg" width="100" height="100"/></div>
 			  </td>' ;
-		echo '<td ><a href="add_cart.php?id='.$id.'"><img src="img/addtocart.png" style="padding-left:10%; padding-right:10%;" ></a></td>' ;
-		echo '<td ><a href="moves.php?item='.$name.'"><img style="padding-left:10%; padding-right:10%;" src="img/moves.jpg" alt="Moves"></a></td>';
-		echo '<td ><a href="add_move.php?item='.$name.'"><img style="padding-left:10%; padding-right:10%;" src="img/addmoves.jpg"></a></td>';
+		echo '<td ><a href="add_cart.php?id='.$id.'" class="button">Add to cart</a></td>' ;
+		echo '<td ><a href="moves.php?item='.$name.'" class="button">Moves</a></td>';
+		echo '<td ><a href="add_move.php?item='.$name.'" class="button">Add move</a></td>';
 
-		echo '<td width="30%" style="padding-right:1%; padding-left:1%; align:center;text-align:center;" >'. $name.'</td>' ;
-		echo '<td witdh="45%" style="padding-right:1%; padding-left:1%; align:center;text-align:left; ">'. $description.'</td>';
-		echo '<td witdh="30%" style="align:center;text-align:center;">'. $quantity. '</td>';
-		echo '<td witdh="30%" style="align:center;text-align:center;">'. $reserved. '</td>';
+		echo '<td width="30%" style="padding:0.5%; align:center;text-align:center;" >'. $name.'</td>' ;
+		echo '<td witdh="45%" style="padding:0.5%; align:center;text-align:left; ">'. $description.'</td>';
+		echo '<td witdh="30%" style="padding:0.5%; align:center;text-align:center;">'. $quantity. '</td>';
+		echo '<td witdh="30%" style="padding:0.5%; align:center;text-align:center;">'. $reserved. '</td>';
 
 		echo '</tr>' ;
 		

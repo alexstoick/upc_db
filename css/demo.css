@@ -107,6 +107,7 @@ tr {
    color: white;
    font-size: 11px;
    font-family: Georgia, serif;
+   white-space:nowrap;
    text-decoration: none;
    vertical-align: middle;
    }
