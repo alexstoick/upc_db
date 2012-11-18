@@ -2,7 +2,7 @@
 <?php require_once ( "config/config.php" ) ; ?>
 <html>
 <head>
-<link href="styles/thrColLiqHdr.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="css/demo.css" />
 <script type="text/javascript" src="styles/jquery.js"></script>
 <script type="text/javascript">
 
@@ -41,12 +41,10 @@
 	$total_rows =mysql_num_rows ( $result ) ;
 	if ( $total > $total_rows )
 		$total = $total_rows ;
-	//echo 'query:'.$query.'<br>';
-//	echo $total_rows;
 ?>
 
-<table border="0" width="100%" cellspacing="2" cellpadding="2" style="font:11px Verdana" id="theList">
-<tr >
+<table width="100%" style="font:11px Verdana" id="theList">
+<tr style="margin-bottom:20px;">
 <td width="5%" class="header"> </td>
 <td width="5%" class="header"> </td>
 <td width="5%" class="header"> </td>
@@ -74,21 +72,21 @@
 		if ( $i % 2 == 0 )
 			echo '<tr id="coloana'.$i.'">' ;
 		else
-			echo '<tr bgcolor="#EFF1F5" id="coloana'.$i.'">' ;
+			echo '<tr bgcolor="#EFF1F5" id="coloana'.$i.'" style="border-bottom:50px; padding:0px; margin:0px;">' ;
 		echo '<font face="arial" size="2">';
-		echo '<td class="gridcol" width="1%" style="align:center;text-align:center;">
+		echo '<td >
 					<div id="viewlarger'.$i.'">[+]</div>
 					<div id="tooltip'.$i.'" style="opacity:0.0; display:none"><img src="images/1 ('.$i.').jpg" width="100" height="100"/></div>
 			  </td>' ;
-		echo '<td class="gridcol" width="1%" style="align:center;text-align:center;"><a href="add_cart.php?id='.$id.'"><img src="img/addtocart.png"></a></td>' ;
-		echo '<td class="gridcol" width="1%"><a href="moves.php?item='.$name.'"><img class="mediumbutton" src="img/moves.png" alt="Moves"></a></td>';
-		echo '<td width="1%" class="gridcol" ><a href="add_move.php?item='.$name.'"><img src="img/addmoves.png"></a></td>';
-		echo '<td width="30%" class="gridcol" style="align:center;text-align:center;" >'. $name.'
-			  </td>' ;
-		echo '<td witdh="45%" class="gridcol" style="padding-right:5px; padding-left:8px; align:center;text-align:left; ">'. $description.'</td>';
-		echo '<td witdh="30%" class="gridcol" style="align:center;text-align:center;">'. $quantity. '</td>';
-		echo '<td witdh="30%" class="gridcol" style="align:center;text-align:center;">'. $reserved. '</td>';
-		//echo '<td witdh="20%" bgcolor="#AAAAAA"><b>Date:'.$today.'</tr>';	
+		echo '<td ><a href="add_cart.php?id='.$id.'"><img src="img/addtocart.png" style="padding-left:10%; padding-right:10%;" ></a></td>' ;
+		echo '<td ><a href="moves.php?item='.$name.'"><img style="padding-left:10%; padding-right:10%;" src="img/moves.jpg" alt="Moves"></a></td>';
+		echo '<td ><a href="add_move.php?item='.$name.'"><img style="padding-left:10%; padding-right:10%;" src="img/addmoves.jpg"></a></td>';
+
+		echo '<td width="30%" style="padding-right:1%; padding-left:1%; align:center;text-align:center;" >'. $name.'</td>' ;
+		echo '<td witdh="45%" style="padding-right:1%; padding-left:1%; align:center;text-align:left; ">'. $description.'</td>';
+		echo '<td witdh="30%" style="align:center;text-align:center;">'. $quantity. '</td>';
+		echo '<td witdh="30%" style="align:center;text-align:center;">'. $reserved. '</td>';
+
 		echo '</tr>' ;
 		
 		

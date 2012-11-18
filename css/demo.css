@@ -1,0 +1,121 @@
+body {
+ background: #123;
+  color: #333;
+  font-size: 11px;
+  height: auto;
+  padding-bottom: 20px;
+}
+
+a {
+  color: #fff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h1 {
+  font-family: Georgia, serif;
+  font-weight: normal;
+  padding-top: 20px;
+  text-align: center;
+}
+
+h2 {
+  padding-top: 20px;
+  text-align: center;
+}
+
+p {
+  overflow: hidden;
+  padding: 10px 0;
+  text-align: center;
+}
+
+.container_12,
+.container_16,
+.container_24 {
+  background-color: #abc;
+  background-repeat: repeat-y;
+  margin-bottom: 20px;
+}
+
+
+/* ~~ This grouped selector gives the lists in the .content area space ~~ */
+
+ul.nav {
+  padding: 0px;
+  list-style: none; /* this removes the list marker */
+  border-top: 1px solid #666; /* this creates the top border for the links - all others are placed using a bottom border on the LI */
+  margin-bottom: 15px; /* this creates the space between the navigation on the content below */
+}
+ul.nav li {
+  border-bottom: 1px solid #666; /* this creates the button separation */
+}
+ul.nav a, ul.nav a:visited { /* grouping these selectors makes sure that your links retain their button look even after being visited */
+  padding: 5px 5px 5px 15px;
+  display: block; /* this gives the link block properties causing it to fill the whole LI containing it. This causes the entire area to react to a mouse click. */
+  text-decoration: none;
+  background: #8090AB;
+  color: #000;
+}
+ul.nav a:hover, ul.nav a:active, ul.nav a:focus { /* this changes the background and text color for both mouse and keyboard navigators */
+  background: #6F7D94;
+  color: #FFF;
+}
+
+
+td.header {
+    background-color:#eff1f5;
+    vertical-align:top;
+    padding:3px;
+    margin:3px;
+    border-bottom:10px;
+    text-align:left;
+    font-size:12px;
+    color:#1f386e;
+    font-weight: bold;
+    font-style: normal;
+    border-left:3px solid #d3d555;
+    border-right:3px solid #d3d555;
+}
+
+td.gridcol {
+  font-size: 12px;
+}
+tr {
+  border-bottom:15px;
+}
+
+.button {
+   border-top: 1px solid #96d1f8;
+   background: #65a9d7;
+   background: -webkit-gradient(linear, left top, left bottom, from(#3e779d), to(#65a9d7));
+   background: -webkit-linear-gradient(top, #3e779d, #65a9d7);
+   background: -moz-linear-gradient(top, #3e779d, #65a9d7);
+   background: -ms-linear-gradient(top, #3e779d, #65a9d7);
+   background: -o-linear-gradient(top, #3e779d, #65a9d7);
+   padding: 5.5px 11px;
+   -webkit-border-radius: 8px;
+   -moz-border-radius: 8px;
+   border-radius: 8px;
+   -webkit-box-shadow: rgba(0,0,0,1) 0 1px 0;
+   -moz-box-shadow: rgba(0,0,0,1) 0 1px 0;
+   box-shadow: rgba(0,0,0,1) 0 1px 0;
+   text-shadow: rgba(0,0,0,.4) 0 1px 0;
+   color: white;
+   font-size: 11px;
+   font-family: Georgia, serif;
+   text-decoration: none;
+   vertical-align: middle;
+   }
+.button:hover {
+   border-top-color: #28597a;
+   background: #28597a;
+   color: #ccc;
+   }
+.button:active {
+   border-top-color: #1b435e;
+   background: #1b435e;
+   }

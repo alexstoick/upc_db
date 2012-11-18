@@ -37,7 +37,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Warehousing database</title>
-<link href="styles/thrColLiqHdr.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="css/text.css" />
+<link rel="stylesheet" href="css/960.css" />
+<link rel="stylesheet" href="css/demo.css" />
+
 <script type="text/javascript" src="styles/jquery.js"></script>
 <script type="text/javascript">
 	var last = -1 ;
@@ -97,7 +100,7 @@
 		var linii = [20,50,100,200] ;
 		//generare select
 		var mesaj = new String ;
-		mesaj = "<p><SELECT style=\"background-color: #FFFFFF; color: #000000; font-family: Arial; font-size: 11px; width: 100px;\" onchange=\"change_lines(this.value)\">";
+		mesaj = "<SELECT style=\"background-color: #FFFFFF; color: #000000; font-family: Arial; font-size: 11px; width: 100px;\" onchange=\"change_lines(this.value)\">";
 		mesaj = mesaj + ('<OPTION>'+nr_linii.toString()+'</OPTION>');
 		for ( i = 0 ; i < 4 ; ++ i )
 		{
@@ -121,55 +124,52 @@
     ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
   })();
-
 </script>
+
 </head>
 
 <body>
+	<div class="container_12" style="margin-top:20px;">
+		<div class="clear"></div>
+		<div class="grid_12"><p></p></div>
+		<div class="grid_12">
+			<h2>
+				Items in stock
+			</h2>
+		</div>
 
+		<div class="clear"></div>
 
+		<div class="grid_2">
+				<ul class="nav">
+					<?php afis_meniu(); ?>
+				</ul>
+				<br><br>
+				Lines per page:<div id="option2">13</div>        
+		</div>
+		<div class="grid_10">
+			
+			<div id="txt"></div>
+		    <div id="txt1"></div>
+		    <div id="txt2"></div>
+		    <br>
 
-<div class="container">
-  <div class="header"><img src="img/sigla_upc.jpg" alt="UPC" name="Insert_logo" width="10%" height="150" id="UPC" style="background: #8090AB;" />
-    <!-- end .header --></div>
-  <div class="sidebar1">
-    <ul class="nav">
-      <?php	afis_meniu(); ?>
-    </ul>
-    <p> Lines per page:     
-     	<div id="option2">13</div>        
-     	<div id="option3"></div>
-     	<div id="option4"></div>
-    <p></p>
-    <!-- end .sidebar1 --></div>
-  <div class="content">
-    <center><h1>Items in stock</h1></center>
-    
-    <!--TABLE-->
+			<form>
+				<input type="button" value="Next" height="50px" width="150px" onMouseDown="showTable('next');"> 
+			</form>
+			<div id="back1"></div>
 
-    <div id="txt"></div>
-    <div id="txt1"></div>
-    <div id="txt2"></div>
-    <br>
+			<div id="tablePlace"></div>
 
-<form>
-<input type="button" value="Next" height="50px" width="150px" onMouseDown="showTable('next');"> 
-</form>
-<div id="back1"></div>
+			<form>
+				<input type="button" value="Next" height="50px" width="150px" onMouseDown="showTable('next');"> 
+			</form>
+			<div id="back2"></div>
 
-<div id="tablePlace"></div>
+		</div>
+		
+		<div class="clear"></div>
+	</div>
 
-<br>
-
-<form>
-<input type="button" value="Next" height="50px" width="150px" onMouseDown="showTable('next');"> 
-</form>
-<div id="back2"></div>
-
-    <!-- end .content --></div>
-  <div class="footer">
-    <p>Copyright.</p>
-    <!-- end .footer --></div>
-  <!-- end .container --></div>
 </body>
 </html>
