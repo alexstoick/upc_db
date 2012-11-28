@@ -39,6 +39,7 @@
 	$query = "SELECT * FROM items WHERE `quantity`!= 0 AND ".$i."<=`id` AND `id`<=".$total  ;
 	$result = mysql_query ( $query , $connection ) or die ( mysql_error () ) ;
 	$total_rows =mysql_num_rows ( $result ) ;
+	$_SESSION [ 'nr_linii' ] = $total_rows ;
 	if ( $total > $total_rows )
 		$total = $total_rows ;
 ?>
@@ -82,10 +83,10 @@
 		echo '<td ><a href="moves.php?item='.$name.'" class="button">Moves</a></td>';
 		echo '<td ><a href="add_move.php?item='.$name.'" class="button">Add move</a></td>';
 
-		echo '<td width="30%" style="padding:0.5%; align:center;text-align:center;" >'. $name.'</td>' ;
-		echo '<td witdh="45%" style="padding:0.5%; align:center;text-align:left; ">'. $description.'</td>';
-		echo '<td witdh="30%" style="padding:0.5%; align:center;text-align:center;">'. $quantity. '</td>';
-		echo '<td witdh="30%" style="padding:0.5%; align:center;text-align:center;">'. $reserved. '</td>';
+		echo '<td width="30%" style="padding:8px; align:center;text-align:center;" >'. $name.'</td>' ;
+		echo '<td witdh="45%" style="padding:8px; align:center;text-align:left; ">'. $description.'</td>';
+		echo '<td witdh="30%" style="padding:8px; align:center;text-align:center;">'. $quantity. '</td>';
+		echo '<td witdh="30%" style="padding:8px; align:center;text-align:center;">'. $reserved. '</td>';
 
 		echo '</tr>' ;
 		
