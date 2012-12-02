@@ -133,9 +133,9 @@
 		<div class="clear"></div>
 		<div class="grid_12"><p></p></div>
 		<div class="grid_12">
-			<h2>
+			<h1>
 				Items in stock
-			</h2>
+			</h1>
 		</div>
 
 		<div class="clear"></div>
@@ -144,16 +144,13 @@
 				<ul class="nav">
 					<?php afis_meniu(); ?>
 				</ul>
-				<br><br>
-				Lines per page:<div id="option2">13</div>        
+				<h5>Lines per page:<div id="option2">13</div></h5>
 		</div>
 		<div class="grid_10">
 			
 			<div id="txt"></div>
-		    <div id="txt1"></div>
+		    <h5><div id="txt1"></div></h5>
 		    <div id="txt2"></div>
-		    <br>
-
 			<form>
 				<input type="button" value="Next" height="50px" width="150px" onMouseDown="showTable('next');"> 
 			</form>

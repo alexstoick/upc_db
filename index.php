@@ -12,5 +12,5 @@
   })();
 
 </script>
-<?php redirect_to ( "main.php" ) ; ?>
+<?php redirect_to ( "main2.php" ) ; ?>
 
