@@ -110,6 +110,7 @@ tr {
    white-space:nowrap;
    text-decoration: none;
    vertical-align: middle;
+   margin-top: 15px;
    }
 .button:hover {
    border-top-color: #28597a;

@@ -2,34 +2,42 @@
 <?php require_once ( "config/config.php" ) ; ?>
 <html>
 <head>
-<link rel="stylesheet" href="css/demo.css" />
-<script type="text/javascript" src="styles/jquery.js"></script>
-<script type="text/javascript">
+	<meta name="viewport" content = "width = device-width, initial-scale = 1.0, minimum-scale = 1.0, maximum-scale = 1.0, user-scalable = no" />
+	<link rel="stylesheet" href="css/demo.css" />
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js" type="text/javascript"></script>
+	<script src="js/footable-0.1.js" type="text/javascript"></script>
+	<link href="css/footable-0.1.css" rel="stylesheet" type="text/css" />
+	<script type="text/javascript">
+		$(function() {
+		  $('table').footable();
+		});
+	</script>
 
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-27142889-1']);
-  _gaq.push(['_trackPageview']);
+	<script type="text/javascript">
 
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
+	  var _gaq = _gaq || [];
+	  _gaq.push(['_setAccount', 'UA-27142889-1']);
+	  _gaq.push(['_trackPageview']);
 
-</script>
-<script type="text/javascript">
-	var last = -1 ;
-    $(function() {
-        $("tr").hover(
-            function() {
-                $(this).toggleClass("highlight");
-            },
-            function() {
-                $(this).toggleClass("highlight");
-            }
-        );
-    });
-</script>
+	  (function() {
+		var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	  })();
+
+	</script>
+	<script type="text/javascript">
+		$(function() {
+			$("tr").hover(
+				function() {
+					$(this).toggleClass("highlight");
+				},
+				function() {
+					$(this).toggleClass("highlight");
+				}
+			);
+		});
+	</script>
 </head>
 <body>
 <?php
@@ -44,25 +52,26 @@
 		$total = $total_rows ;
 ?>
 
-<table width="100%" style="font:11px Verdana" id="theList">
-<tr style="margin-bottom:20px;">
-<td class="header"> </td>
-<td class="header"> </td>
-<td class="header"> </td>
-<td class="header"> </td>
-<td width="30%" style="align:center;text-align:center;" class="header"><b>Name</b></td>
-<td width="30%" style="align:center;text-align:center;" class="header"><b>Description</b></td>
-<td width="30%" bgcolor="#999999" style="align:center;text-align:center;" class="header"><b>Quantity</b></td>
-<td width="30%" style="align:center;text-align:center;" class="header"><b>Reserved</b></td>
-</tr>
+<table class="footable">
+	<thead>
+		<tr>
+			<th data-hide="phone,tablet"> Cart</th>
+			<th data-hide="phone,tablet"> Moves</th>
+			<th data-hide="phone,tablet"> Add move</th>
+			<th data-class="expand"> Name</th>
+			<th > Description</th>
+			<th data-hide="phone" > Quantity</th>
+			<th data-hide="phone,tablet"> Reserved</th>
+		</tr>
+	</thead>
+<tbody>
+
 <?php
 
 
 	for ( $i = 0 ; $i < $total_rows ; ++ $i )
 	{
 		if ( $i != 350 ){
-		$date  = mktime( date("m")  , date("d"), date("Y"));
-		$today = date ( "m.d.Y" , $date ) ;
 		$name = mysql_result ( $result , $i , "item_code" );
 		$quantity = mysql_result ( $result , $i , "quantity" );
 		$reserved = mysql_result ( $result , $i , "reserved" );
@@ -74,55 +83,24 @@
 			echo '<tr id="coloana'.$i.'">' ;
 		else
 			echo '<tr bgcolor="#EFF1F5" id="coloana'.$i.'">' ;
-		echo '<font face="arial" size="2">';
-		echo '<td >
-					<div id="viewlarger'.$i.'">[+]</div>
-					<div id="tooltip'.$i.'" style="opacity:0.0; display:none"><img src="images/1 ('.$i.').jpg" width="100" height="100"/></div>
-			  </td>' ;
-		echo '<td ><a href="add_cart.php?id='.$id.'" class="button">Add to cart</a></td>' ;
+//		echo '<font face="arial" size="2">';
+
+		echo '<td style="margin:11px"><a href="add_cart.php?id='.$id.'" class="button">Add to cart</a></td>' ;
 		echo '<td ><a href="moves.php?item='.$name.'" class="button">Moves</a></td>';
 		echo '<td ><a href="add_move.php?item='.$name.'" class="button">Add move</a></td>';
 
-		echo '<td width="30%" style="padding:8px; align:center;text-align:center;" >'. $name.'</td>' ;
-		echo '<td witdh="45%" style="padding:8px; align:center;text-align:left; ">'. $description.'</td>';
-		echo '<td witdh="30%" style="padding:8px; align:center;text-align:center;">'. $quantity. '</td>';
-		echo '<td witdh="30%" style="padding:8px; align:center;text-align:center;">'. $reserved. '</td>';
+		echo '<td class="expand" >'. $name.'</td>' ;
+		echo '<td>'. $description.'</td>';
+		echo '<td>'. $quantity. '</td>';
+		echo '<td>'. $reserved. '</td>';
 
 		echo '</tr>' ;
-		
-		
-		echo '<script>
-				$("#viewlarger'.$i.'").click(
-		  	function() {
-                var offset = $("#coloana'.$i.'").offset();
-				var opacity = $("#tooltip'.$i.'").css("opacity" ) ;
-				if ( opacity == 1 )
-				{
-					//hide
-                	$("#tooltip'.$i.'").css("top", offset.top).css("left", offset.left).css("display", "none");
-	                $("#tooltip'.$i.'").animate({ opacity: 0 }, 50);
-				}
-				else
-				{
-					//show
-					if ( last != -1 )
-					{
-						//inchidem
-						 $("#tooltip"+last).css("top", offset.top).css("left", offset.left).css("display", "none");
-		                 $("#tooltip"+last).animate({ opacity: 0 }, 50);
-					}
-                	$("#tooltip'.$i.'").css("top", offset.top).css("left", offset.left).css("display", "block");
-	                $("#tooltip'.$i.'").animate({ opacity: 1.0 }, 50);		
-					last = '.$i.' ;			
-				}
-            	});
-			</script>';
-		
 		
 		}
 	}
 ?> 
 
+</tbody>
 </table>
 </body>
 </html>
