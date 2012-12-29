@@ -26,18 +26,6 @@
 	  })();
 
 	</script>
-	<script type="text/javascript">
-		$(function() {
-			$("tr").hover(
-				function() {
-					$(this).toggleClass("highlight");
-				},
-				function() {
-					$(this).toggleClass("highlight");
-				}
-			);
-		});
-	</script>
 </head>
 <body>
 <?php
