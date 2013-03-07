@@ -3,13 +3,12 @@
 <html>
 <head>
 	<meta name="viewport" content = "width = device-width, initial-scale = 1.0, minimum-scale = 1.0, maximum-scale = 1.0, user-scalable = no" />
-	<link rel="stylesheet" href="css/demo.css" />
-	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js" type="text/javascript"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 	<script src="js/footable-0.1.js" type="text/javascript"></script>
 	<link href="css/footable-0.1.css" rel="stylesheet" type="text/css" />
 	<script type="text/javascript">
 		$(function() {
-		  $('table').footable();
+		  $('.footable').footable();
 		});
 	</script>
 
@@ -32,12 +31,9 @@
 
 	$i = $_GET ['i' ];
 	$total = $_GET ['total'];
-	$query = "SELECT * FROM items WHERE `quantity`!= 0 AND ".$i."<=`id` AND `id`<=".$total  ;
+	$query = "SELECT * FROM items WHERE `quantity`!= 0 AND ".$i."<=`id` AND `id`<".$total  ;
 	$result = mysql_query ( $query , $connection ) or die ( mysql_error () ) ;
 	$total_rows =mysql_num_rows ( $result ) ;
-	$_SESSION [ 'nr_linii' ] = $total_rows ;
-	if ( $total > $total_rows )
-		$total = $total_rows ;
 ?>
 
 <table class="footable">

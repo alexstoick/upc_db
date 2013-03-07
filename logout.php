@@ -1,4 +1,4 @@
-<?php require_once ( "config/session.php" ) ; $_SESSION['user_id']=NULL; ?>
+<?php require_once ( "config/session.php" ) ; $_SESSION['user_id']=NULL; session_destroy( ) ;?>
 <?php redirect_to ( "login.php" ) ;?>
 <script type="text/javascript">
 

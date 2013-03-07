@@ -2,32 +2,20 @@
 <?php require_once ( "config/config.php" ) ; ?>
 
 <?php
-	//IMPORTANT
-	if ( isset ( $_POST [ "number_lines" ] ) )
-	{
-		$nr_linii = $_POST [ "number_lines" ] ;	
-		$_SESSION [ 'nr_linii' ] = $nr_linii ;
-	}
+	if ( isset ( $_SESSION [ 'nr_linii' ] ) )
+		$nr_linii = $_SESSION [ 'nr_linii' ] ;
 	else
-		if ( isset ( $_SESSION [ 'nr_linii' ] ) )
-			$nr_linii = $_SESSION [ 'nr_linii' ] ;
-		else
-			$nr_linii = 20 ;
+		$nr_linii = 20 ;
+
 	//LINII
-	if ( empty ( $_POST ["goNext"] ) && empty ( $_POST["goBack"] ) && empty ( $_SESSION["startRow"] ) )
+	if ( empty ( $_SESSION["startRow"] ) )
 	{
 		$i = 0 ;
 		$total = $nr_linii ;
+		$_SESSION ["startRow"] = $i;
 	}
 	else
 	{
-		if ( isset ( $_POST["goNext"] ) )
-			$i = $_POST["goNext"] ;
-		else
-			if ( isset ( $_POST["goBack"] ) )
-				$i = $_POST["goBack"] ;
-			else
-				$i = $_SESSION["startRow"];
 		$_SESSION["startRow"] = $i ;
 	}
 ?>
@@ -55,15 +43,15 @@
 	
 	function showTable(from_where)
 	{
-		var i = 0 , total = 50 ;
+		var i , total ;
 		document.getElementById("tablePlace").innerHTML="<img src='img/loading.gif'></img>";
 
 		if ( from_where == "init" )
 		{
-			//initial request do nth about it
+			//initial request 
+			//set variables
 			last_i = i = 0 ;
 			last_total = total = 0+nr_linii ;
-			document.getElementById("txt1").innerHTML="INIT";
 		}
 		else
 			if ( from_where == "next" )
@@ -150,7 +138,6 @@
 			
 			<div id="txt"></div>
 		    <h5><div id="txt1"></div></h5>
-		    <div id="txt2"></div>
 			<form>
 				<input type="button" value="Next" height="50px" width="150px" onMouseDown="showTable('next');"> 
 			</form>
